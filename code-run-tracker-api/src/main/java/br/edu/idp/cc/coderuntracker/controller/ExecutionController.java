@@ -20,7 +20,7 @@ public class ExecutionController {
     @Autowired
     private ExecutionRepository executionRepository;
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<?> registerExecution(@RequestBody Execution request, HttpServletRequest httpRequest) {
 
         try {
