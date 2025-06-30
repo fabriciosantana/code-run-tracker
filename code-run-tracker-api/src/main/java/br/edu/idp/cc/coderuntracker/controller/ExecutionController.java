@@ -2,7 +2,6 @@ package br.edu.idp.cc.coderuntracker.controller;
 
 import java.time.LocalDateTime;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +16,11 @@ import jakarta.servlet.http.HttpServletRequest;
 @RequestMapping("/api/executions")
 public class ExecutionController {
 
-    @Autowired
-    private ExecutionRepository executionRepository;
+    private final ExecutionRepository executionRepository;
+
+    public ExecutionController(ExecutionRepository executionRepository){
+        this.executionRepository = executionRepository;
+    }
 
     @PostMapping("/register")
     public ResponseEntity<?> registerExecution(@RequestBody Execution request, HttpServletRequest httpRequest) {
