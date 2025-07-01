@@ -25,7 +25,13 @@ public class Main {
     }
 
     public static void main(String[] args){
-        reportExecution("1234", "test");
+        if (args.length < 2) {
+            System.err.println("Usage: java Main <studentId> <taskCode>");
+            return;
+        }
+        String studentId = args[0];
+        String taskCode = args[1];
+        reportExecution(studentId, taskCode);
     }
 
     public static void reportExecution(String studentId, String taskCode) {
@@ -58,7 +64,7 @@ public class Main {
             connection.setDoOutput(true);
 
             try (OutputStream os = connection.getOutputStream()) {
-                byte[] input = jsonPayload.getBytes("utf-8");
+                byte[] input = jsonPayload.getBytes(StandardCharsets.UTF_8);
                 os.write(input, 0, input.length);
             }
 
