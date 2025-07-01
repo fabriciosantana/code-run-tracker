@@ -25,5 +25,4 @@ replay_pid*
 
 *.lst
 /.vscode/
-application.properties
 target/
