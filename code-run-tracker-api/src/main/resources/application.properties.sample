@@ -1,9 +1,14 @@
 spring.application.name=code-run-tracker-api
 
-spring.datasource.url=jdbc:postgresql://aws-0-sa-east-1.pooler.supabase.com:5432/postgres
-spring.datasource.username=postgres.sclxzgofvwuuzteqjlhh
-spring.datasource.password=
-spring.jpa.hibernate.ddl-auto=none
+spring.datasource.url=${SPRING_DATASOURCE_URL:jdbc:postgresql://aws-0-sa-east-1.pooler.supabase.com:5432/postgres}
+spring.datasource.username=${SPRING_DATASOURCE_USERNAME:postgres.sclxzgofvwuuzteqjlhh}
+spring.datasource.password=${SPRING_DATASOURCE_PASSWORD:your-password}
+spring.datasource.driver-class-name=org.postgresql.Driver
 
+spring.jpa.hibernate.ddl-auto=none
 spring.jpa.show-sql=true
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+
+server.port=${PORT:8080}
