@@ -25,7 +25,13 @@ public class Main {
     }
 
     public static void main(String[] args){
-        reportExecution("1234", "test");
+        if (args.length < 2) {
+            System.err.println("Usage: java Main <studentId> <taskCode>");
+            return;
+        }
+        String studentId = args[0];
+        String taskCode = args[1];
+        reportExecution(studentId, taskCode);
     }
 
     public static void reportExecution(String studentId, String taskCode) {
