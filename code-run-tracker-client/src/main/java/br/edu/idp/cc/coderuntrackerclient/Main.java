@@ -38,10 +38,18 @@ public class Main {
             String localUser = System.getProperty("user.name");
             String executedAt = LocalDateTime.now().toString();
 
-            String jsonPayload = String.format(
-                "{\n  \"institution\": \"%s\",\n  \"course\": \"%s\",\n  \"subject\": \"%s\",\n  \"semester\": \"%s\",\n  \"studentId\": \"%s\",\n  \"taskCode\": \"%s\",\n  \"localUser\": \"%s\",\n  \"executedAt\": \"%s\"\n}",
-                institution, course, subject, semester, studentId, taskCode, localUser, executedAt
-            );
+            String jsonPayload = """
+                {
+                  "institution": "%s",
+                  "course": "%s",
+                  "subject": "%s",
+                  "semester": "%s",
+                  "studentId": "%s",
+                  "taskCode": "%s",
+                  "localUser": "%s",
+                  "executedAt": "%s"
+                }
+                """.formatted(institution, course, subject, semester, studentId, taskCode, localUser, executedAt);
 
             URL url = new URL(apiUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
